@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $OSTYPE -e "linux-gnu" ]
+if [ "$OSTYPE" == "linux-gnu" ]
 then
   echo "Type d'os Valide."
 else
@@ -18,15 +18,15 @@ install3cx()
 }
 
 cat /etc/os-release | grep -i "jessie"
-if [ $? -e 0 ]
+if [ $? -eq 0 ]
 then
   osrelease="jessie"
-  install3cx($osrelease)
+  install3cx "$osrelease"
 fi
 
 cat /etc/os-release | grep -i "stretch"
-if [ $? -e 0 ]
+if [ $? -eq 0 ]
 then
   osrelease="stretch"
-  install3cx($osrelease)
+  install3cx "$osrelease"
 fi
